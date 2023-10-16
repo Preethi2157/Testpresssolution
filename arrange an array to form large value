@@ -1,0 +1,41 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class ArrangeNumbersForLargestValue {
+    public static void main(String[] args) {
+        int[] input = {54, 546, 548, 60};
+        String largestValue = arrangeLargestValue(input);
+        System.out.println("Largest value: " + largestValue);
+    }
+
+    public static String arrangeLargestValue(int[] input) {
+        // Convert the array of numbers to strings
+        String[] strArray = new String[input.length];
+        for (int i = 0; i < input.length; i++) {
+            strArray[i] = String.valueOf(input[i]);
+        }
+
+        // Sort the strings using a custom comparator to achieve the largest value
+        Arrays.sort(strArray, new LargestNumberComparator());
+
+        // Concatenate the sorted strings to get the largest value
+        StringBuilder result = new StringBuilder();
+        for (String str : strArray) {
+            result.append(str);
+        }
+
+        return result.toString();
+    }
+
+    static class LargestNumberComparator implements Comparator<String> {
+        @Override
+        public int compare(String str1, String str2) {
+            // Compare two strings as a combination of str1 + str2 and str2 + str1
+            String option1 = str1 + str2;
+            String option2 = str2 + str1;
+
+            // Compare the two options as strings
+            return option2.compareTo(option1);
+        }
+    }
+}
