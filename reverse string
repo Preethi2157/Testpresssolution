@@ -1,28 +1,23 @@
-public class ReverseString {
-    public static void main(String[] args) {
-        String input = "codecode";
-        String reversed = reverseString(input);
-        System.out.println("Original string: " + input);
-        System.out.println("Reversed string: " + reversed);
-    }
+import java.lang.*;
+public class Reversestring{
+    public static void main(String[] args){
+        String input="codecode";
+        String reversed=reverseString(input);
+        System.out.println("Reversedstring: "+ reversed);
+}
+    public static String reverseString(String input){
+        char[] chararray = input.toCharArray = input.toCharArray();
+            int left = 0;
+            int right = charArray.length-1;
 
-    public static String reverseString(String input) {
-        char[] charArray = input.toCharArray();
-        int left = 0;
-        int right = charArray.length - 1;
+            while(left<right){
 
-        while (left < right) {
-            // Swap characters at left and right indices
-            char temp = charArray[left];
-            charArray[left] = charArray[right];
-            charArray[right] = temp;
-
-            // Move the pointers towards each other
+            char temp=charArray[left];
+            charArray[left]=charArray[right];
+            charArray[right]=temp;
             left++;
-            right--;
-        }
-
-        // Convert the character array back to a string
-        return new String(charArray);
+            right__;
     }
+return new String(charArray);
+}
 }
